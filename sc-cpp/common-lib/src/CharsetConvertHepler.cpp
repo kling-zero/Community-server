@@ -1,0 +1,145 @@
+#include "pch.h"
+#include "../include/CharsetConvertHepler.h"
+#include <codecvt>
+#include <iostream>
+#include <wchar.h>
+
+#ifdef LINUX
+#include <stdlib.h>
+#include <bits/locale_conv.h>
+#endif
+
+
+//转换缓冲区大小定义为1KB
+#define CONVERT_BUFF_SIZE 1024
+
+std::string CharsetConvertHepler::unicodeToUtf8(const std::wstring& wstr)
+{
+	std::string ret;
+	try
+	{
+		std::wstring_convert<std::codecvt_utf8<wchar_t>> wcv;
+		ret = wcv.to_bytes(wstr);
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	return ret;
+}
+
+std::wstring CharsetConvertHepler::utf8ToUnicode(const std::string& str)
+{
+	std::wstring ret;
+	try
+	{
+		std::wstring_convert<std::codecvt_utf8<wchar_t>> wcv;
+		ret = wcv.from_bytes(str);
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	return ret;
+}
+
+std::string CharsetConvertHepler::unicodeToAnsi(const std::wstring& wstr)
+{
+#ifdef LINUX
+	setlocale(LC_CTYPE, "zh_CN.UTF-8");
+	std::string ret;
+	const wchar_t* src = wstr.data();
+	char mbString[CONVERT_BUFF_SIZE];
+	size_t size = wcstombs(mbString, src, CONVERT_BUFF_SIZE);
+	if (size == (size_t)(-1))
+	{
+		printf("Couldn't convert string--invalid multibyte character.\n");
+	}
+	else
+	{
+		ret = mbString;
+	}
+	//setlocale(LC_ALL, "C");
+	return ret;
+#else
+	setlocale(LC_ALL, "chs");
+	std::string ret;
+	const wchar_t* src = wstr.data();
+	char mbString[CONVERT_BUFF_SIZE];
+	size_t countConverted;
+	errno_t err;
+	//mbstate_t mbstate;
+	//memset((void*)&mbstate, 0, sizeof(mbstate));
+	//err = wcsrtombs_s(&countConverted, mbString, CONVERT_BUFF_SIZE, &src, _TRUNCATE, &mbstate);
+	err = wcstombs_s(&countConverted, mbString, CONVERT_BUFF_SIZE, src, _TRUNCATE);
+	if (err == EILSEQ)
+	{
+		std::cout << "字符串中存在编码错误" << std::endl;
+	}
+	else if (err == STRUNCATE)
+	{
+		std::cout << "缓存区不足，字符串过长" << std::endl;
+		ret = mbString;
+	}
+	else
+	{
+		ret = mbString;
+	}
+	setlocale(LC_ALL, "C");
+	return ret;
+#endif
+}
+
+std::wstring CharsetConvertHepler::ansiToUnicode(const std::string& str)
+{
+#ifdef LINUX
+	setlocale(LC_CTYPE, "zh_CN.UTF-8");
+	std::wstring ret;
+	const char* src = str.data();
+	wchar_t wcstr[CONVERT_BUFF_SIZE];
+	size_t size = mbstowcs(wcstr, src, CONVERT_BUFF_SIZE);
+	if (size == (size_t)(-1))
+	{
+		printf("Couldn't convert string--invalid multibyte character.\n");
+	}
+	else
+	{
+		ret = wcstr;
+	}
+	//setlocale(LC_CTYPE, "C");
+	return ret;
+#else
+	setlocale(LC_ALL, "chs");
+	std::wstring ret;
+	const char* src = str.data();
+	wchar_t wcstr[CONVERT_BUFF_SIZE];
+	size_t countConverted;
+	errno_t err;
+	err = mbstowcs_s(&countConverted, wcstr, CONVERT_BUFF_SIZE, src, _TRUNCATE);
+	if (err == EILSEQ)
+	{
+		std::cout << "字符串中存在编码错误" << std::endl;
+	}
+	else if (err == STRUNCATE)
+	{
+		std::cout << "缓存区不足，字符串过长" << std::endl;
+		ret = wcstr;
+	}
+	else
+	{
+		ret = wcstr;
+	}
+	setlocale(LC_ALL, "C");
+	return ret;
+#endif
+}
+
+std::string CharsetConvertHepler::utf8ToAnsi(const std::string& str)
+{
+	return unicodeToAnsi(utf8ToUnicode(str));
+}
+
+std::string CharsetConvertHepler::ansiToUtf8(const std::string& str)
+{
+	return unicodeToUtf8(ansiToUnicode(str));
+}

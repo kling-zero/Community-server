@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{bbad70f2-2bf4-49ff-8d31-2d7a7f8eb86d}</ProjectGuid>
+    <RootNamespace>sccostManagement</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib\openssl;..\common-lib\lib\debug;..\mysql-lib\lib\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;libcrypto.lib;libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib\openssl;..\common-lib\lib;..\mysql-lib\lib\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;libcrypto.lib;libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)dy-lib/lib/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib64\openssl;..\common-lib\lib64\debug;..\mysql-lib\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;libcrypto.lib;libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib64\openssl;..\common-lib\lib64;..\mysql-lib\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;libcrypto.lib;libssl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)dy-lib/lib64/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="api\Aspect.cpp" />
+    <ClCompile Include="api\CarFee\CarFeeController.cpp" />
+    <ClCompile Include="api\combo\ComboItemController.cpp" />
+    <ClCompile Include="api\DiscountRequest\DiscountRequestController.cpp" />
+    <ClCompile Include="api\DiscountSetting\DiscountSettingController.cpp" />
+    <ClCompile Include="api\feecancel\FeeCancelController.cpp" />
+    <ClCompile Include="api\feeformula\FeeFormulaController.cpp" />
+    <ClCompile Include="api\feesum\FeeSumController.cpp" />
+    <ClCompile Include="api\import\FeeImportItemController.cpp" />
+    <ClCompile Include="api\PreferentialType\PreferentialTypeController.cpp" />
+    <ClCompile Include="api\Router.cpp" />
+    <ClCompile Include="api\setting\FeeItemController.cpp" />
+    <ClCompile Include="api\StaffFee\StaffFeeController.cpp" />
+    <ClCompile Include="dao\CarFee\CarFeeListDAO.cpp" />
+    <ClCompile Include="dao\CarFee\ChargeRangeDAO.cpp" />
+    <ClCompile Include="dao\feecancel\FeeCancelDAO.cpp" />
+    <ClCompile Include="dao\feecancel\FeeCancelStateDAO.cpp" />
+    <ClCompile Include="dao\feeformula\FeeFormulaDAO.cpp" />
+    <ClCompile Include="dao\feesum\FeeSumDAO.cpp" />
+    <ClCompile Include="dao\StaffFee\StaffFeeDAO.cpp" />
+    <ClCompile Include="domain\dto\CarFee\BatchCreationDTO.cpp" />
+    <ClCompile Include="domain\dto\CarFee\CancelDTO.cpp" />
+    <ClCompile Include="domain\dto\CarFee\CreateFeeDTO.cpp" />
+    <ClCompile Include="domain\dto\CarFee\ModifyCarFeeDTO.cpp" />
+    <ClCompile Include="domain\dto\combo\ComboDTO.cpp" />
+    <ClCompile Include="domain\dto\combo\FeeItemDTO.cpp" />
+    <ClCompile Include="domain\dto\feecancel\FeeCancelAuditDTO.cpp" />
+    <ClCompile Include="domain\dto\feecancel\FeeCancelDTO.cpp" />
+    <ClCompile Include="domain\dto\feeformula\FeeFormulaDTO.cpp" />
+    <ClCompile Include="domain\dto\setting\DiscountDTO.cpp" />
+    <ClCompile Include="domain\dto\setting\FeeConfigDTO.cpp" />
+    <ClCompile Include="domain\query\feecancel\FeeCancelQuery.cpp" />
+    <ClCompile Include="domain\query\feeformula\FeeFormulaQuery.cpp" />
+    <ClCompile Include="domain\query\feesum\FeeSumQuery.cpp" />
+    <ClCompile Include="domain\vo\ResultStatus.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\CarFee\CarFeeService.cpp" />
+    <ClCompile Include="service\CarFee\ChargeRangeService.cpp" />
+    <ClCompile Include="service\feecancel\FeeCancelService.cpp" />
+    <ClCompile Include="service\feeformula\FeeFormulaService.cpp" />
+    <ClCompile Include="service\feesum\FeeSumService.cpp" />
+    <ClCompile Include="service\StaffFee\StaffFeeService.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\common-lib\common-lib.vcxproj">
+      <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\http-lib\http-lib.vcxproj">
+      <Project>{634af60f-bb31-439b-98c1-805bc34265f6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\mysql-lib\mysql-lib.vcxproj">
+      <Project>{8293b741-b019-444f-80bc-70321a47868e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="api\CarFee\CarFeeController.h" />
+    <ClInclude Include="api\combo\ComboItemController.h" />
+    <ClInclude Include="api\DiscountRequest\DiscountRequestController.h" />
+    <ClInclude Include="api\DiscountSetting\DiscountSettingController.h" />
+    <ClInclude Include="api\feecancel\FeeCancelController.h" />
+    <ClInclude Include="api\feeformula\FeeFormulaController.h" />
+    <ClInclude Include="api\feesum\FeeSumController.h" />
+    <ClInclude Include="api\import\FeeImportItemController.h" />
+    <ClInclude Include="api\PreferentialType\PreferentialTypeController.h" />
+    <ClInclude Include="api\Router.h" />
+    <ClInclude Include="api\setting\FeeItemController.h" />
+    <ClInclude Include="api\StaffFee\StaffFeeController.h" />
+    <ClInclude Include="dao\CarFee\BuildingOwnerMapper.h" />
+    <ClInclude Include="dao\CarFee\CarFeeListDAO.h" />
+    <ClInclude Include="dao\CarFee\OwnerCarMapper.h" />
+    <ClInclude Include="dao\CarFee\CarStateMapper.h" />
+    <ClInclude Include="dao\CarFee\ChargeRangeDAO.h" />
+    <ClInclude Include="dao\CarFee\ChargeRangeMapper.h" />
+    <ClInclude Include="dao\CarFee\CheckChargesDAO.h" />
+    <ClInclude Include="dao\CarFee\ParkingAreaMapper.h" />
+    <ClInclude Include="dao\feecancel\FeeCancelDAO.h" />
+    <ClInclude Include="dao\feecancel\FeeCancelMapper.h" />
+    <ClInclude Include="dao\feecancel\FeeCancelStateDAO.h" />
+    <ClInclude Include="dao\feecancel\FeeCancelStateMapper.h" />
+    <ClInclude Include="dao\feeformula\FeeFormulaDAO.h" />
+    <ClInclude Include="dao\feeformula\FeeFormulaMapper.h" />
+    <ClInclude Include="dao\feesum\FeeSumDAO.h" />
+    <ClInclude Include="dao\feesum\FeeSumMapper.h" />
+    <ClInclude Include="dao\StaffFee\StaffFeeDAO.h" />
+    <ClInclude Include="dao\StaffFee\StaffFeeMapper.h" />
+    <ClInclude Include="domain\do\CarFee\BuildingOwnerDO.h" />
+    <ClInclude Include="domain\do\CarFee\OwnerCarDO.h" />
+    <ClInclude Include="domain\do\CarFee\ChargeRangeDO.h" />
+    <ClInclude Include="domain\do\CarFee\ParkingAreaDO.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\feecancel\FeeCancelDO.h" />
+    <ClInclude Include="domain\do\feecancel\FeeCancelStateDO.h" />
+    <ClInclude Include="domain\do\feeformula\FeeFormulaDO.h" />
+    <ClInclude Include="domain\do\feesum\FeeSumDO.h" />
+    <ClInclude Include="domain\do\StaffFee\StaffFeeDO.h" />
+    <ClInclude Include="domain\dto\CarFee\BatchCreationDTO.h" />
+    <ClInclude Include="domain\dto\CarFee\CancelDTO.h" />
+    <ClInclude Include="domain\dto\CarFee\CreateFeeDTO.h" />
+    <ClInclude Include="domain\dto\CarFee\ModifyCarFeeDTO.h" />
+    <ClInclude Include="domain\dto\combo\ComboDTO.h" />
+    <ClInclude Include="domain\dto\combo\FeeItemDTO.h" />
+    <ClInclude Include="domain\dto\feecancel\FeeCancelAuditDTO.h" />
+    <ClInclude Include="domain\dto\feecancel\FeeCancelDTO.h" />
+    <ClInclude Include="domain\dto\feeformula\FeeFormulaDTO.h" />
+    <ClInclude Include="domain\dto\IDDTO.h" />
+    <ClInclude Include="domain\dto\setting\DiscountDTO.h" />
+    <ClInclude Include="domain\dto\setting\FeeConfigDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\CarFee\CarFeeQuery.h" />
+    <ClInclude Include="domain\query\CarFee\PaymentHistoryQuery.h" />
+    <ClInclude Include="domain\query\combo\ComboItemQuery.h" />
+    <ClInclude Include="domain\query\combo\FeeComboMemberListQuery.h" />
+    <ClInclude Include="domain\query\DiscountRequest\DiscountRequestQuery.h" />
+    <ClInclude Include="domain\query\DiscountSetting\DiscountItemQuery.h" />
+    <ClInclude Include="domain\query\feecancel\FeeCancelQuery.h" />
+    <ClInclude Include="domain\query\feeformula\FeeFormulaQuery.h" />
+    <ClInclude Include="domain\query\feesum\FeeSumQuery.h" />
+    <ClInclude Include="domain\query\import\FeeImportDetailQuery.h" />
+    <ClInclude Include="domain\query\import\FeeImportQuery.h" />
+    <ClInclude Include="domain\query\PageQuery.h" />
+    <ClInclude Include="domain\query\PreferentialType\PreferentialTypeQuery.h" />
+    <ClInclude Include="domain\query\setting\FeeItemQuery.h" />
+    <ClInclude Include="domain\query\StaffFee\StaffFeeQuery.h" />
+    <ClInclude Include="domain\vo\CarFee\BatchCreationVO.h" />
+    <ClInclude Include="domain\vo\CarFee\CarDataVO.h" />
+    <ClInclude Include="domain\vo\CarFee\CarFeeListVO.h" />
+    <ClInclude Include="domain\vo\CarFee\CarStateVO.h" />
+    <ClInclude Include="domain\vo\CarFee\ChargeRangeVO.h" />
+    <ClInclude Include="domain\vo\CarFee\ChargingItemVO.h" />
+    <ClInclude Include="domain\vo\CarFee\CheckChargesVO.h" />
+    <ClInclude Include="domain\vo\CarFee\ParkingVO.h" />
+    <ClInclude Include="domain\vo\CarFee\PaymentHistoryVO.h" />
+    <ClInclude Include="domain\vo\combo\ComboListVO.h" />
+    <ClInclude Include="domain\vo\combo\FeeComboMemberListVO.h" />
+    <ClInclude Include="domain\vo\combo\FeeNameVO.h" />
+    <ClInclude Include="domain\vo\combo\UserMenuVO.h" />
+    <ClInclude Include="domain\vo\DiscountRequest\RequestListVO.h" />
+    <ClInclude Include="domain\vo\DiscountRequest\RequestStateVO.h" />
+    <ClInclude Include="domain\vo\DiscountRequest\RequestTypeVO.h" />
+    <ClInclude Include="domain\vo\DiscountSetting\DiscountListVO.h" />
+    <ClInclude Include="domain\vo\DiscountSetting\DiscountTypeVO.h" />
+    <ClInclude Include="domain\vo\feecancel\FeeCancelStateVO.h" />
+    <ClInclude Include="domain\vo\feecancel\FeeCancelVO.h" />
+    <ClInclude Include="domain\vo\feeformula\FeeFormulaVO.h" />
+    <ClInclude Include="domain\vo\feesum\FeeSumVO.h" />
+    <ClInclude Include="domain\vo\import\FeeFormulVO.h" />
+    <ClInclude Include="domain\vo\import\FeeImportListVO.h" />
+    <ClInclude Include="domain\vo\import\FloorNumVO.h" />
+    <ClInclude Include="domain\vo\import\ImportFeeDetailVO.h" />
+    <ClInclude Include="domain\vo\JsonVO.h" />
+    <ClInclude Include="domain\vo\Message.h" />
+    <ClInclude Include="domain\vo\PageVO.h" />
+    <ClInclude Include="domain\vo\PreferentialType\PreferentialTypeListVO.h" />
+    <ClInclude Include="domain\vo\ResultStatus.h" />
+    <ClInclude Include="domain\vo\setting\BillTypeVO.h" />
+    <ClInclude Include="domain\vo\setting\FeeFlagVO.h" />
+    <ClInclude Include="domain\vo\setting\FeeListVO.h" />
+    <ClInclude Include="domain\vo\setting\FeeTypeVO.h" />
+    <ClInclude Include="domain\vo\setting\IsDefaultVO.h" />
+    <ClInclude Include="domain\vo\setting\PaymentCdVO.h" />
+    <ClInclude Include="domain\vo\StaffFee\StaffFeeListVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\CarFee\CarFeeService.h" />
+    <ClInclude Include="service\CarFee\ChargeRangeService.h" />
+    <ClInclude Include="service\feecancel\FeeCancelService.h" />
+    <ClInclude Include="service\feeformula\FeeFormulaService.h" />
+    <ClInclude Include="service\feesum\FeeSumService.h" />
+    <ClInclude Include="service\StaffFee\StaffFeeService.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="public.pem" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

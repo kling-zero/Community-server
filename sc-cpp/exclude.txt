@@ -1,0 +1,9 @@
+\Debug\
+\Release\
+\x64\
+\sample\
+\user\
+\public\
+\uselib\
+.vcxproj
+.md

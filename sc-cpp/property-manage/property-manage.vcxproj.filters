@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="api\Aspect.cpp" />
+    <ClCompile Include="api\OwnerInfo\OwnerInfoController.cpp" />
+    <ClCompile Include="api\OwnerAccount\OwnerAccountController.cpp" />
+    <ClCompile Include="api\BindOwner\BindOwnerController.cpp" />
+    <ClCompile Include="api\Router.cpp" />
+    <ClCompile Include="dao\OwnerInfo\OwnerInfoDAO.cpp" />
+    <ClCompile Include="dao\OwnerAccount\OwnerAccountDAO.cpp" />
+    <ClCompile Include="domain\vo\ResultStatus.cpp" />
+    <ClCompile Include="api\shopmanage\ShopManage.cpp" />
+    <ClCompile Include="dao\BindOwner\BindOwnerDAO.cpp" />
+    <ClCompile Include="dao\OwnerMember\OwnerMemberDAO.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\OwnerInfo\OwnerInfoService.cpp" />
+    <ClCompile Include="service\OwnerAccount\OwnerAccountService.cpp" />
+    <ClCompile Include="service\BindOwner\BindOwnerService.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="api\OwnerMember\OwnerMemberController.cpp" />
+    <ClCompile Include="service\OwnerMember\OwnerMemberService.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="api\OwnerInfo\OwnerInfoController.h" />
+    <ClInclude Include="api\OwnerAccount\OwnerAccountController.h" />
+    <ClInclude Include="api\BindOwner\BindOwnerController.h" />
+    <ClInclude Include="api\Router.h" />
+    <ClInclude Include="api\shopmanage\ShopManage.h" />
+    <ClInclude Include="dao\BindOwner\BindOwnerDAO.h" />
+    <ClInclude Include="dao\BindOwner\BindOwnerMapper.h" />
+    <ClInclude Include="domain\do\BindOwner\CheckBindOwnerItemDO.h" />
+    <ClInclude Include="domain\do\BindOwner\CheckBindTypeDO.h" />
+    <ClInclude Include="dao\OwnerMember\OwnerMemberDAO.h" />
+    <ClInclude Include="dao\OwnerMember\OwnerMemberMapper.h" />
+    <ClInclude Include="domain\do\OwnerMember\OwnerItemDo.h" />
+    <ClInclude Include="domain\dto\OwnerMember\AddMemberDTO.h" />
+    <ClInclude Include="domain\dto\OwnerMember\DeleteMemberDTO.h" />
+    <ClInclude Include="dao\OwnerAccount\OwnerAccountDAO.h" />
+    <ClInclude Include="dao\OwnerAccount\OwnerAccountDetailMapper.h" />
+    <ClInclude Include="dao\OwnerAccount\OwnerAccountItemMapper.h" />
+    <ClInclude Include="dao\OwnerAccount\SelectOwnerMapper.h" />
+    <ClInclude Include="dao\OwnerInfo\OwnerInfoDAO.h" />
+    <ClInclude Include="dao\OwnerInfo\OwnerInfoMapper.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\OwnerAccount\OwnerAccountItemDO.h" />
+    <ClInclude Include="domain\do\OwnerAccount\OwnerAccountQueryDO.h" />
+    <ClInclude Include="domain\do\OwnerAccount\OwnerAccountDetailDO.h" />
+    <ClInclude Include="domain\do\OwnerAccount\SelectOwnerDO.h" />
+    <ClInclude Include="domain\do\OwnerInfo\OwnerInfoDO.h" />
+    <ClInclude Include="domain\do\OwnerInfo\OwnerInfoQueryDO.h" />
+    <ClInclude Include="domain\dto\IDDTO.h" />
+    <ClInclude Include="domain\dto\OwnerInfo\OwnerInfoDTO.h" />
+    <ClInclude Include="domain\dto\OwnerInfo\HouseInfoDTO.h" />
+    <ClInclude Include="domain\dto\shopmanage\AddShopDTO.h" />
+    <ClInclude Include="domain\dto\OwnerAccount\PreStorageDTO.h" />
+    <ClInclude Include="domain\dto\OwnerMember\ModifyMemberDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\OwnerInfo\BuildingInfoQuery.h" />
+    <ClInclude Include="domain\query\OwnerInfo\OwnerInfoQuery.h" />
+    <ClInclude Include="domain\query\OwnerAccount\AccountQuery.h" />
+    <ClInclude Include="domain\query\OwnerAccount\OwnerAccountDetailQuery.h" />
+    <ClInclude Include="domain\dto\BindOwner\ChangeBindOwnerState.h" />
+    <ClInclude Include="domain\query\BindOwner\CheckBindOwnerItemQuery.h" />
+    <ClInclude Include="domain\query\OwnerMember\OwnerItemQuery.h" />
+    <ClInclude Include="domain\query\PageQuery.h" />
+    <ClInclude Include="domain\vo\BindOwner\CheckBindOwnerTypeVO.h" />
+    <ClInclude Include="domain\vo\BindOwner\CheckBindOwnerVO.h" />
+    <ClInclude Include="domain\query\shopmanage\ShopManageQuery.h" />
+    <ClInclude Include="domain\vo\JsonVO.h" />
+    <ClInclude Include="domain\vo\Message.h" />
+    <ClInclude Include="domain\vo\OwnerInfo\OwnerInfoVO.h" />
+    <ClInclude Include="domain\vo\OwnerInfo\BuildingInfoVO.h" />
+    <ClInclude Include="domain\vo\OwnerInfo\HouseInfoVO.h" />
+    <ClInclude Include="domain\vo\OwnerAccount\AccountTypeVO.h" />
+    <ClInclude Include="domain\vo\OwnerAccount\OwnerAccountDetailVO.h" />
+    <ClInclude Include="domain\vo\OwnerAccount\OwnerAccountListVO.h" />
+    <ClInclude Include="domain\vo\OwnerAccount\PreStorageVO.h" />
+    <ClInclude Include="domain\vo\OwnerAccount\SelectOwnerVO.h" />
+    <ClInclude Include="domain\vo\OwnerMember\OwnerItemVO.h" />
+    <ClInclude Include="domain\vo\PageVO.h" />
+    <ClInclude Include="domain\vo\ResultStatus.h" />
+    <ClInclude Include="domain\vo\shopmanage\BuildingVo.h" />
+    <ClInclude Include="domain\vo\shopmanage\ShopListVo.h" />
+    <ClInclude Include="domain\vo\shopmanage\ShopStateVo.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="api\OwnerMember\OwnerMemberController.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\OwnerInfo\OwnerInfoService.h" />
+    <ClInclude Include="service\OwnerAccount\OwnerAccountService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="service\BindOwner\BindOwnerService.h" />
+    <ClInclude Include="service\OwnerMember\OwnerMemberService.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="public.pem" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{eaa5750a-255a-4cfa-9063-65520f8a3720}</ProjectGuid>
+    <RootNamespace>sccar</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib\openssl;..\common-lib\lib\debug;..\mysql-lib\lib\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rdkafka++.lib;rocketmq-client-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>path=%path%;../dy-lib/lib/debug</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib\openssl;..\common-lib\lib;..\mysql-lib\lib\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rdkafka++.lib;rocketmq-client-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)dy-lib/lib/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib64\openssl;..\common-lib\lib64\debug;..\mysql-lib\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rdkafka++.lib;rocketmq-client-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>path=%path%;../dy-lib/lib64/debug</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib64\openssl;..\common-lib\lib64;..\mysql-lib\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rdkafka++.lib;rocketmq-client-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)dy-lib/lib64/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="api\Aspect.cpp" />
+    <ClCompile Include="api\booth\BoothItemController.cpp" />
+    <ClCompile Include="api\OwnerVehicle\OwnerVehicleController.cpp" />
+    <ClCompile Include="api\Router.cpp" />
+    <ClCompile Include="dao\booth\BoothDAO.cpp" />
+    <ClCompile Include="dao\OwnerVehicle\OwnerCar\ChooseOwnerDAO.cpp" />
+    <ClCompile Include="dao\OwnerVehicle\OwnerCar\ChooseParkDAO.cpp" />
+    <ClCompile Include="dao\OwnerVehicle\OwnerCar\CarInfoDAO.cpp" />
+    <ClCompile Include="dao\OwnerVehicle\OwnerCar\OwnerCarDAO.cpp" />
+    <ClCompile Include="domain\dto\BoothList\addbooth\AddBoothDTO.cpp" />
+    <ClCompile Include="domain\dto\BoothList\addsharebooth\AddShareBoothDTO.cpp" />
+    <ClCompile Include="domain\dto\BoothList\deletebooth\DeleteBoothDTO.cpp" />
+    <ClCompile Include="domain\dto\BoothList\deletesharebooth\DeleteShareBoothDTO.cpp" />
+    <ClCompile Include="domain\dto\BoothList\modifybooth\ModifyBoothDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\FeeListDTO\AddFeeListDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\FeeListDTO\DelFeeListDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\FeeListDTO\EditFeeListDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\OwnerCarMember\AddOwnerCarMemberDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\OwnerCarMember\DelOwnerCarMemberDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\OwnerCar\AddOwnerCarDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\OwnerCar\DelOwnerCarDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\OwnerCar\EditOwnerCarDTO.cpp" />
+    <ClCompile Include="domain\dto\Shared\AttrsDTO.cpp" />
+    <ClCompile Include="domain\dto\Shared\FeeConfigsDTO.cpp" />
+    <ClCompile Include="domain\dto\Shared\FeeTypeCdsDTO.cpp" />
+    <ClCompile Include="domain\dto\Shared\OwnerCarAttrDTO.cpp" />
+    <ClCompile Include="domain\dto\Shared\ParkingAreasDTO.cpp" />
+    <ClCompile Include="domain\vo\ResultStatus.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\booth\BoothService.cpp" />
+    <ClCompile Include="service\OwnerVehicle\OwnerCar\OwnerCarService.cpp" />
+    <ClCompile Include="service\OwnerVehicle\OwnerCar\CarInfoService.cpp" />
+    <ClCompile Include="service\OwnerVehicle\OwnerCar\ChooseOwnerService.cpp" />
+    <ClCompile Include="service\OwnerVehicle\OwnerCar\ChooseParkService.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="api\booth\BoothItemController.h" />
+    <ClInclude Include="api\Router.h" />
+    <ClInclude Include="api\OwnerVehicle\OwnerVehicleController.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\OwnerCarDAO.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\CarInfoMapper.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\ChooseOwnerMapper.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\ChooseParkDAO.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\ChooseParkMapper.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\CarInfoDAO.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\ChooseOwnerDAO.h" />
+    <ClInclude Include="dao\booth\BoothDAO.h" />
+    <ClInclude Include="dao\booth\BoothMapper.h" />
+    <ClInclude Include="domain\do\booth\BoothListDO.h" />
+    <ClInclude Include="domain\do\booth\ParkingAreasDO.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\AddOwnerCarDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\CarInfoDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\CarInfoQueryDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\ChooseOwnerDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\ChooseOwnerQueryDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\ChooseParkDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\ChooseParkQueryDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\EditOwnerCarDO.h" />
+    <ClInclude Include="domain\dto\BoothList\addbooth\AddBoothDTO.h" />
+    <ClInclude Include="domain\dto\BoothList\addsharebooth\AddShareBoothDTO.h" />
+    <ClInclude Include="domain\dto\BoothList\deletebooth\DeleteBoothDTO.h" />
+    <ClInclude Include="domain\dto\BoothList\deletesharebooth\DeleteShareBoothDTO.h" />
+    <ClInclude Include="domain\dto\IDStrDTO.h" />
+    <ClInclude Include="domain\dto\BoothList\modifybooth\ModifyBoothDTO.h" />
+    <ClInclude Include="domain\dto\IDDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\OwnerCarMember\DelOwnerCarMemberDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\OwnerCar\DelOwnerCarDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\FeeListDTO\DelFeeListDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\OwnerCar\EditOwnerCarDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\OwnerCar\AddOwnerCarDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\FeeListDTO\EditFeeListDTO.h" />
+    <ClInclude Include="domain\dto\Shared\OwnerCarAttrDTO.h" />
+    <ClInclude Include="domain\dto\Shared\ParkingAreasDTO.h" />
+    <ClInclude Include="domain\dto\shared\FeeTypeCdsDTO.h" />
+    <ClInclude Include="domain\dto\shared\AttrsDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\booth\BoothItemQuery.h" />
+    <ClInclude Include="domain\vo\boothlist\BoothListVO.h" />
+    <ClInclude Include="domain\vo\boothlist\ShareBoothListVO.h" />
+    <ClInclude Include="domain\query\PageQuery.h" />
+    <ClInclude Include="domain\dto\shared\FeeConfigsDTO.h" />
+    <ClInclude Include="domain\vo\JsonVO.h" />
+    <ClInclude Include="domain\vo\Message.h" />
+    <ClInclude Include="domain\vo\PageVO.h" />
+    <ClInclude Include="domain\vo\ResultStatus.h" />
+    <ClInclude Include="domain\vo\UniversalVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\booth\BoothService.h" />
+    <ClInclude Include="service\OwnerVehicle\OwnerCar\OwnerCarService.h" />
+    <ClInclude Include="service\OwnerVehicle\OwnerCar\CarInfoService.h" />
+    <ClInclude Include="service\OwnerVehicle\OwnerCar\ChooseOwnerService.h" />
+    <ClInclude Include="service\OwnerVehicle\OwnerCar\ChooseParkService.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="conf\data-source.yaml" />
+    <None Include="domain\do\OwnerVehicle\OwnerCar\ChooseParkQueryDOh" />
+    <None Include="public.pem" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\common-lib\common-lib.vcxproj">
+      <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\http-lib\http-lib.vcxproj">
+      <Project>{634af60f-bb31-439b-98c1-805bc34265f6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\mysql-lib\mysql-lib.vcxproj">
+      <Project>{8293b741-b019-444f-80bc-70321a47868e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

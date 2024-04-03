@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{d9987a8f-f532-4692-8f27-2856165794c4}</ProjectGuid>
+    <RootNamespace>propertymanage</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib\openssl;..\common-lib\lib\debug;..\mysql-lib\lib\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib
+;libcrypto.lib
+;libssl.lib
+;
+xlntd.lib;yaml-cppd.lib
+;
+hiredis.lib;
+redis++.lib
+;
+rdkafka++.lib
+;
+rocketmq-client-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <StackReserveSize>
+      </StackReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib\openssl;..\common-lib\lib;..\mysql-lib\lib\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;
+libcrypto.lib;
+libssl.lib
+;
+xlnt.lib
+;yaml-cpp.lib;
+hiredis.lib
+;redis++.lib
+;
+rdkafka++.lib
+;
+rocketmq-client-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)dy-lib/lib/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib64\openssl;..\common-lib\lib64\debug;..\mysql-lib\lib64\vs14\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlntd.lib;yaml-cppd.lib;hiredis.lib;redis++.lib;rdkafka++.lib;rocketmq-client-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\;..\mysql-lib\include;..\http-lib\include;..\common-lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\http-lib\lib64\openssl;..\common-lib\lib64;..\mysql-lib\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;libcrypto.lib;libssl.lib;xlnt.lib;yaml-cpp.lib;hiredis.lib;redis++.lib;rdkafka++.lib;rocketmq-client-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "$(SolutionDir)dy-lib/lib64/release" "$(OutDir)" /a /F /I /Y /C</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="api\OwnerInfo\OwnerInfoController.h" />
+    <ClInclude Include="api\OwnerAccount\OwnerAccountController.h" />
+    <ClInclude Include="api\BindOwner\BindOwnerController.h" />
+    <ClInclude Include="api\Router.h" />
+    <ClInclude Include="api\shopmanage\ShopManage.h" />
+    <ClInclude Include="dao\BindOwner\BindOwnerDAO.h" />
+    <ClInclude Include="dao\BindOwner\BindOwnerMapper.h" />
+    <ClInclude Include="domain\do\BindOwner\CheckBindOwnerItemDO.h" />
+    <ClInclude Include="domain\do\BindOwner\CheckBindTypeDO.h" />
+    <ClInclude Include="dao\OwnerMember\OwnerMemberDAO.h" />
+    <ClInclude Include="dao\OwnerMember\OwnerMemberMapper.h" />
+    <ClInclude Include="domain\do\OwnerMember\OwnerItemDo.h" />
+    <ClInclude Include="domain\dto\OwnerMember\AddMemberDTO.h" />
+    <ClInclude Include="domain\dto\OwnerMember\DeleteMemberDTO.h" />
+    <ClInclude Include="dao\OwnerAccount\OwnerAccountDAO.h" />
+    <ClInclude Include="dao\OwnerAccount\OwnerAccountDetailMapper.h" />
+    <ClInclude Include="dao\OwnerAccount\OwnerAccountItemMapper.h" />
+    <ClInclude Include="dao\OwnerAccount\SelectOwnerMapper.h" />
+    <ClInclude Include="dao\OwnerInfo\OwnerInfoDAO.h" />
+    <ClInclude Include="dao\OwnerInfo\OwnerInfoMapper.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\do\OwnerAccount\OwnerAccountItemDO.h" />
+    <ClInclude Include="domain\do\OwnerAccount\OwnerAccountQueryDO.h" />
+    <ClInclude Include="domain\do\OwnerAccount\OwnerAccountDetailDO.h" />
+    <ClInclude Include="domain\do\OwnerAccount\SelectOwnerDO.h" />
+    <ClInclude Include="domain\do\OwnerInfo\OwnerInfoDO.h" />
+    <ClInclude Include="domain\do\OwnerInfo\OwnerInfoQueryDO.h" />
+    <ClInclude Include="domain\dto\IDDTO.h" />
+    <ClInclude Include="domain\dto\OwnerInfo\OwnerInfoDTO.h" />
+    <ClInclude Include="domain\dto\OwnerInfo\HouseInfoDTO.h" />
+    <ClInclude Include="domain\dto\shopmanage\AddShopDTO.h" />
+    <ClInclude Include="domain\dto\OwnerAccount\PreStorageDTO.h" />
+    <ClInclude Include="domain\dto\OwnerMember\ModifyMemberDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\OwnerInfo\BuildingInfoQuery.h" />
+    <ClInclude Include="domain\query\OwnerInfo\OwnerInfoQuery.h" />
+    <ClInclude Include="domain\query\OwnerAccount\AccountQuery.h" />
+    <ClInclude Include="domain\query\OwnerAccount\OwnerAccountDetailQuery.h" />
+    <ClInclude Include="domain\dto\BindOwner\ChangeBindOwnerState.h" />
+    <ClInclude Include="domain\query\BindOwner\CheckBindOwnerItemQuery.h" />
+    <ClInclude Include="domain\query\OwnerMember\OwnerItemQuery.h" />
+    <ClInclude Include="domain\query\PageQuery.h" />
+    <ClInclude Include="domain\vo\BindOwner\CheckBindOwnerTypeVO.h" />
+    <ClInclude Include="domain\vo\BindOwner\CheckBindOwnerVO.h" />
+    <ClInclude Include="domain\query\shopmanage\ShopManageQuery.h" />
+    <ClInclude Include="domain\vo\JsonVO.h" />
+    <ClInclude Include="domain\vo\Message.h" />
+    <ClInclude Include="domain\vo\OwnerInfo\OwnerInfoVO.h" />
+    <ClInclude Include="domain\vo\OwnerInfo\BuildingInfoVO.h" />
+    <ClInclude Include="domain\vo\OwnerInfo\HouseInfoVO.h" />
+    <ClInclude Include="domain\vo\OwnerAccount\AccountTypeVO.h" />
+    <ClInclude Include="domain\vo\OwnerAccount\OwnerAccountDetailVO.h" />
+    <ClInclude Include="domain\vo\OwnerAccount\OwnerAccountListVO.h" />
+    <ClInclude Include="domain\vo\OwnerAccount\PreStorageVO.h" />
+    <ClInclude Include="domain\vo\OwnerAccount\SelectOwnerVO.h" />
+    <ClInclude Include="domain\vo\OwnerMember\OwnerItemVO.h" />
+    <ClInclude Include="domain\vo\PageVO.h" />
+    <ClInclude Include="domain\vo\ResultStatus.h" />
+    <ClInclude Include="domain\vo\shopmanage\BuildingVo.h" />
+    <ClInclude Include="domain\vo\shopmanage\ShopListVo.h" />
+    <ClInclude Include="domain\vo\shopmanage\ShopStateVo.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="api\OwnerMember\OwnerMemberController.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\OwnerInfo\OwnerInfoService.h" />
+    <ClInclude Include="service\OwnerAccount\OwnerAccountService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="service\BindOwner\BindOwnerService.h" />
+    <ClInclude Include="service\OwnerMember\OwnerMemberService.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\common-lib\common-lib.vcxproj">
+      <Project>{213f58ad-9943-4155-8a45-1b2dab0bb8f9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\http-lib\http-lib.vcxproj">
+      <Project>{634af60f-bb31-439b-98c1-805bc34265f6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\mysql-lib\mysql-lib.vcxproj">
+      <Project>{8293b741-b019-444f-80bc-70321a47868e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="api\Aspect.cpp" />
+    <ClCompile Include="api\OwnerInfo\OwnerInfoController.cpp" />
+    <ClCompile Include="api\OwnerAccount\OwnerAccountController.cpp" />
+    <ClCompile Include="api\BindOwner\BindOwnerController.cpp" />
+    <ClCompile Include="api\Router.cpp" />
+    <ClCompile Include="dao\OwnerInfo\OwnerInfoDAO.cpp" />
+    <ClCompile Include="dao\OwnerAccount\OwnerAccountDAO.cpp" />
+    <ClCompile Include="domain\vo\ResultStatus.cpp" />
+    <ClCompile Include="api\shopmanage\ShopManage.cpp" />
+    <ClCompile Include="dao\BindOwner\BindOwnerDAO.cpp" />
+    <ClCompile Include="dao\OwnerMember\OwnerMemberDAO.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\OwnerInfo\OwnerInfoService.cpp" />
+    <ClCompile Include="service\OwnerAccount\OwnerAccountService.cpp" />
+    <ClCompile Include="service\BindOwner\BindOwnerService.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="api\OwnerMember\OwnerMemberController.cpp" />
+    <ClCompile Include="service\OwnerMember\OwnerMemberService.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="public.pem" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

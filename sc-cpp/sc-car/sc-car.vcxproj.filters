@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="api\Aspect.cpp" />
+    <ClCompile Include="api\booth\BoothItemController.cpp" />
+    <ClCompile Include="api\Router.cpp" />
+    <ClCompile Include="domain\dto\BoothList\addbooth\AddBoothDTO.cpp" />
+    <ClCompile Include="domain\dto\BoothList\addsharebooth\AddShareBoothDTO.cpp" />
+    <ClCompile Include="domain\dto\BoothList\deletebooth\DeleteBoothDTO.cpp" />
+    <ClCompile Include="domain\dto\BoothList\deletesharebooth\DeleteShareBoothDTO.cpp" />
+    <ClCompile Include="domain\dto\BoothList\modifybooth\ModifyBoothDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\FeeListDTO\AddFeeListDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\FeeListDTO\DelFeeListDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\FeeListDTO\EditFeeListDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\OwnerCarMember\AddOwnerCarMemberDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\OwnerCarMember\DelOwnerCarMemberDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\OwnerCar\AddOwnerCarDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\OwnerCar\DelOwnerCarDTO.cpp" />
+    <ClCompile Include="domain\dto\OwnerVehicle\OwnerCar\EditOwnerCarDTO.cpp" />
+    <ClCompile Include="domain\dto\Shared\AttrsDTO.cpp" />
+    <ClCompile Include="domain\dto\Shared\FeeConfigsDTO.cpp" />
+    <ClCompile Include="domain\dto\Shared\FeeTypeCdsDTO.cpp" />
+    <ClCompile Include="domain\dto\Shared\OwnerCarAttrDTO.cpp" />
+    <ClCompile Include="domain\dto\Shared\ParkingAreasDTO.cpp" />
+    <ClCompile Include="domain\vo\ResultStatus.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="service\booth\BoothService.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="dao\OwnerVehicle\OwnerCar\CarInfoDAO.cpp" />
+    <ClCompile Include="dao\OwnerVehicle\OwnerCar\ChooseParkDAO.cpp" />
+    <ClCompile Include="service\OwnerVehicle\OwnerCar\ChooseParkService.cpp" />
+    <ClCompile Include="dao\OwnerVehicle\OwnerCar\ChooseOwnerDAO.cpp" />
+    <ClCompile Include="service\OwnerVehicle\OwnerCar\ChooseOwnerService.cpp" />
+    <ClCompile Include="service\OwnerVehicle\OwnerCar\CarInfoService.cpp" />
+    <ClCompile Include="service\OwnerVehicle\OwnerCar\OwnerCarService.cpp" />
+    <ClCompile Include="api\OwnerVehicle\OwnerVehicleController.cpp" />
+    <ClCompile Include="dao\booth\BoothDAO.cpp" />
+    <ClCompile Include="dao\OwnerVehicle\OwnerCar\AddOwnerCarDAO.cpp" />
+    <ClCompile Include="dao\OwnerVehicle\OwnerCar\OwnerCarDAO.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="api\booth\BoothItemController.h" />
+    <ClInclude Include="api\Router.h" />
+    <ClInclude Include="api\OwnerVehicle\OwnerVehicleController.h" />
+    <ClInclude Include="domain\do\DoInclude.h" />
+    <ClInclude Include="domain\dto\BoothList\addbooth\AddBoothDTO.h" />
+    <ClInclude Include="domain\dto\BoothList\addsharebooth\AddShareBoothDTO.h" />
+    <ClInclude Include="domain\dto\BoothList\deletebooth\DeleteBoothDTO.h" />
+    <ClInclude Include="domain\dto\BoothList\deletesharebooth\DeleteShareBoothDTO.h" />
+    <ClInclude Include="domain\dto\IDStrDTO.h" />
+    <ClInclude Include="domain\dto\BoothList\modifybooth\ModifyBoothDTO.h" />
+    <ClInclude Include="domain\dto\IDDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\OwnerCarMember\DelOwnerCarMemberDTO.h" />
+    <ClInclude Include="domain\dto\Shared\FeeTypeCdsDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\OwnerCar\DelOwnerCarDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\FeeListDTO\DelFeeListDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\OwnerCar\EditOwnerCarDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\OwnerCar\AddOwnerCarDTO.h" />
+    <ClInclude Include="domain\dto\OwnerVehicle\FeeListDTO\EditFeeListDTO.h" />
+    <ClInclude Include="domain\dto\Shared\AttrsDTO.h" />
+    <ClInclude Include="domain\dto\Shared\OwnerCarAttrDTO.h" />
+    <ClInclude Include="domain\dto\Shared\ParkingAreasDTO.h" />
+    <ClInclude Include="domain\GlobalInclude.h" />
+    <ClInclude Include="domain\query\booth\BoothItemQuery.h" />
+    <ClInclude Include="domain\vo\boothlist\BoothListVO.h" />
+    <ClInclude Include="domain\vo\boothlist\ShareBoothListVO.h" />
+    <ClInclude Include="domain\query\PageQuery.h" />
+    <ClInclude Include="domain\dto\Shared\FeeConfigsDTO.h" />
+    <ClInclude Include="domain\vo\JsonVO.h" />
+    <ClInclude Include="domain\vo\Message.h" />
+    <ClInclude Include="domain\vo\PageVO.h" />
+    <ClInclude Include="domain\vo\ResultStatus.h" />
+    <ClInclude Include="domain\vo\UniversalVO.h" />
+    <ClInclude Include="Macros.h" />
+    <ClInclude Include="ServerInfo.h" />
+    <ClInclude Include="service\booth\BoothService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\ChooseOwnerDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\CarInfoDO.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\CarInfoDAO.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\CarInfoMapper.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\ChooseParkQueryDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\ChooseOwnerQueryDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\CarInfoQueryDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\ChooseParkDO.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\ChooseOwnerMapper.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\ChooseParkMapper.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\ChooseParkDAO.h" />
+    <ClInclude Include="service\OwnerVehicle\OwnerCar\ChooseParkService.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\ChooseOwnerDAO.h" />
+    <ClInclude Include="service\OwnerVehicle\OwnerCar\ChooseOwnerService.h" />
+    <ClInclude Include="service\OwnerVehicle\OwnerCar\CarInfoService.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\AddOwnerCarDO.h" />
+    <ClInclude Include="dao\OwnerVehicle\OwnerCar\OwnerCarDAO.h" />
+    <ClInclude Include="service\OwnerVehicle\OwnerCar\OwnerCarService.h" />
+    <ClCompile Include="api\Aspect.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\Router.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\vo\ResultStatus.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\dto\shared\FeeConfigsDTO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\dto\shared\FeeTypeCdsDTO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\dto\shared\ParkingAreasDTO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\dto\shared\AttrsDTO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\dto\shared\OwnerCarAttrDTO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="api\booth\BoothItemController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\dto\BoothList\addbooth\AddBoothDTO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\dto\BoothList\addsharebooth\AddShareBoothDTO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\dto\BoothList\deletebooth\DeleteBoothDTO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\dto\BoothList\deletesharebooth\DeleteShareBoothDTO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="domain\dto\BoothList\modifybooth\ModifyBoothDTO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="service\booth\BoothService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClInclude Include="dao\booth\BoothDAO.h" />
+    <ClInclude Include="dao\booth\BoothMapper.h" />
+    <ClInclude Include="domain\do\booth\BoothListDO.h" />
+    <ClInclude Include="domain\do\booth\ParkingAreasDO.h" />
+    <ClInclude Include="domain\do\OwnerVehicle\OwnerCar\EditOwnerCarDO.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="api\Router.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\do\DoInclude.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\IDDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\PageQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\JsonVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\Message.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\PageVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\ResultStatus.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\GlobalInclude.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Macros.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\IDStrDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\shared\FeeConfigsDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\UniversalVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\shared\FeeTypeCdsDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\shared\ParkingAreasDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\shared\AttrsDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\shared\OwnerCarAttrDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="api\booth\BoothItemController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\BoothList\addbooth\AddBoothDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\BoothList\addsharebooth\AddShareBoothDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\BoothList\deletebooth\DeleteBoothDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\BoothList\deletesharebooth\DeleteShareBoothDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\dto\BoothList\modifybooth\ModifyBoothDTO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\query\booth\BoothItemQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\boothlist\BoothListVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="domain\vo\boothlist\ShareBoothListVO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="service\booth\BoothService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <None Include="conf\data-source.yaml" />
+    <None Include="public.pem" />
+    <None Include="README.md" />
+    <None Include="domain\do\OwnerVehicle\OwnerCar\ChooseParkQueryDOh" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+</Project>
