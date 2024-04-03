@@ -1,0 +1,111 @@
+spring:
+  cloud:
+    inetutils:
+      preferred-networks: 
+        - 43.153
+        - 192.168
+        - 39.99
+        - 43.139
+      ignored-interfaces:
+        - docker0
+        - veth.*
+        - VM.*
+        - br-.*
+    gateway: 
+      routes: 
+        - id: community
+          uri: lb://${sn.community}
+          predicates:
+            - Path=/community/**
+          filters:
+            - StripPrefix=1
+        - id: hp
+          uri: lb://${sn.hp}
+          predicates: 
+            - Path=/hp/**
+        - id: store
+          uri: lb://${sn.store}
+          predicates: 
+            - Path=/store/**
+        - id: management
+          uri: lb://${sn.management}
+          predicates: 
+            - Path=/management/**
+        - id: login
+          uri: lb://${sn.login}
+          predicates: 
+            - Path=/login/**
+        - id: auth
+          uri: lb://${sn.auth}
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        - id: commonmenu
+          uri: lb://${sn.commonmenu}
+          predicates: 
+            - Path=/commonmenu/**
+        - id: menu
+          uri: lb://${sn.menu}
+          predicates: 
+            - Path=/menu/**
+        - id: setting
+          uri: lb://${sn.setting}
+          predicates: 
+            - Path=/setting/**
+          filters:
+            - StripPrefix=1
+        - id: property-manage
+          uri: lb://Property-Manager
+          predicates:
+            - Path=/property-manage/**
+sn:
+  test: MY-TEST
+  management: MANAGEMENT
+  reportmanagement: REPORTMANAGEMENT
+  menu: MENU
+  store: STORE
+  hp: HP
+  commonmenu: COMMONMENU
+  setting: SETTING
+  community: COMMUNITY
+
+sp:
+  test: 1996
+  management: 1113
+  reportmanagement: 1112
+  gateway: 12000
+  store: 10700
+  hp: 10800
+  menu: 11000
+  commonmenu: 11100
+  setting: 11200
+  community: 10233
+
+ribbon:
+ MaxAutoRetries: 0
+ MaxAutoRetriesNextServer: 1
+ OkToRetryOnAllOperations: false
+ ConnectTimeout: 5000
+ ReadTimeout: 5000
+
+feign:
+ sentinel:
+   enabled: false
+
+captcha:
+  width: 200
+  height: 100
+  codeCount: 4
+  lineCount: 4
+
+secure:
+  openauthorization: false
+  white:
+    urls:
+      - "/actuator/**"
+      - "/auth/oauth/token"
+      - "/login/auth-login"
+      - "/login/refresh-token"
+      - "/login/get-captcha"
+      - "/login/logout"

@@ -1,0 +1,23 @@
+cpp:
+  sample:
+    url: http://localhost:8090
+    name: feign-cpp-sample
+sentinel:
+    dashboard: 81.68.65.206:8718
+rocket-mq:
+    name-server: 119.91.250.106
+seata:
+  default: 49.235.68.71:8092
+logstash:
+  host: 81.68.66.123
+fastdfs:
+  charset: UTF-8
+  connect-timeout: 5
+  network-timeout: 30
+  http-secret-key: FastDFS1234567890
+  http-anti-steal-token: true
+  connection-pool-max-idle: 20
+  connection-pool-max-total: 20
+  connection-pool-min-idle: 2
+  nginx-servers: 192.168.220.128:8888
+  tracker-servers: 192.168.220.128:22122
