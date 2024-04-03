@@ -1,0 +1,17 @@
+server:
+  port: ${sp.gateway}
+spring:
+  application:
+    name: ${sn.gateway}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # 公钥文件配置
+          public-key-location: classpath:public.pem
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 开启从注册中心动态创建路由的功能
+          enabled: true

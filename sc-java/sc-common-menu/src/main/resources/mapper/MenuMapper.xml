@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.sccommonmenu.mapper.MenuMapper">
+
+    <resultMap id="listMenusL3" type="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+        <id column="p1id" property="id"></id>
+        <result column="p1name" property="name"></result>
+        <result column="p1icon" property="icon"></result>
+        <result column="p1link_url" property="linkUrl"></result>
+        <result column="p1path" property="path"></result>
+        <result column="p1icon" property="icon"></result>
+        <result column="p1description" property="description"></result>
+        <result column="p1parent_menu_id" property="pid"></result>
+        <result column="p1level" property="level"></result>
+        <collection property="children" ofType="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+            <id column="p2id" property="id"></id>
+            <result column="p2name" property="name"></result>
+            <result column="p2icon" property="icon"></result>
+            <result column="p2link_url" property="linkUrl"></result>
+            <result column="p2path" property="path"></result>
+            <result column="p2icon" property="icon"></result>
+            <result column="p2description" property="description"></result>
+            <result column="p2parent_menu_id" property="pid"></result>
+            <result column="p2level" property="level"></result>
+            <collection property="children" ofType="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+                <id column="p3id" property="id"></id>
+                <result column="p3name" property="name"></result>
+                <result column="p3icon" property="icon"></result>
+                <result column="p3link_url" property="linkUrl"></result>
+                <result column="p3path" property="path"></result>
+                <result column="p3icon" property="icon"></result>
+                <result column="p3description" property="description"></result>
+                <result column="p3parent_menu_id" property="pid"></result>
+                <result column="p3level" property="level"></result>
+            </collection>
+        </collection>
+    </resultMap>
+    <select id="getAllByIdListL3" resultMap="listMenusL3">
+        select p1.id  p1id, p1.name  p1name, p1.link_url  p1linkUrl, p1.path  p1path, p1.icon  p1icon, p1.description  p1description, p1.parent_menu_id  p1pid, p1.level  p1level,
+               p.p2id p2id, p.p2name p2name, p.p2link_url p2linkUrl, p.p2path p2path, p.p2icon p2icon, p.p2description p2description, p.p2parent_menu_id p2pid, p.p2level p2level,
+               p.p3id p3id, p.p3name p3name, p.p3link_url p3linkUrl, p.p3path p3path, p.p3icon p3icon, p.p3description p3description, p.p3parent_menu_id p3pid, p.p3level p3level
+        from
+            menu p1
+        inner join
+            (
+            select  p2.id p2id, p2.name p2name, p2.link_url p2link_url, p2.path p2path, p2.icon p2icon, p2.description p2description, p2.parent_menu_id p2parent_menu_id,p2.level p2level,
+                    p3.id p3id, p3.name p3name, p3.link_url p3link_url, p3.path p3path, p3.icon p3icon, p3.description p3description, p3.parent_menu_id p3parent_menu_id,p3.level p3level
+             from
+                 menu p2
+             inner join
+                 (
+                 select id, name, link_url, path, icon, description, parent_menu_id, level
+                 from
+                    menu
+                 where id in
+                    <foreach item="id" collection="ids" open="(" separator="," close=")">
+                        #{id}
+                    </foreach>
+                    and level = 3
+                 )p3
+                 on p2.id = p3.parent_menu_id
+            ) p
+        on p1.id = p.p2parent_menu_id
+    </select>
+
+
+    <resultMap id="listMenusL2" type="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+        <id column="p2id" property="id"></id>
+        <result column="p2name" property="name"></result>
+        <result column="p2icon" property="icon"></result>
+        <result column="p2link_url" property="linkUrl"></result>
+        <result column="p2path" property="path"></result>
+        <result column="p2icon" property="icon"></result>
+        <result column="p2description" property="description"></result>
+        <result column="p2parent_menu_id" property="pid"></result>
+        <result column="p2level" property="level"></result>
+        <collection property="children" ofType="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+            <id column="p3id" property="id"></id>
+            <result column="p3name" property="name"></result>
+            <result column="p3icon" property="icon"></result>
+            <result column="p3link_url" property="linkUrl"></result>
+            <result column="p3path" property="path"></result>
+            <result column="p3icon" property="icon"></result>
+            <result column="p3description" property="description"></result>
+            <result column="p3parent_menu_id" property="pid"></result>
+            <result column="p3level" property="level"></result>
+        </collection>
+    </resultMap>
+    <select id="getAllByIdListL2" resultType="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+        select  p2.id p2id, p2.name p2name, p2.link_url p2link_url, p2.path p2path, p2.icon p2icon, p2.description p2description, p2.parent_menu_id p2parent_menu_id,p2.level p2level,
+                p3.id p3id, p3.name p3name, p3.link_url p3link_url, p3.path p3path, p3.icon p3icon, p3.description p3description, p3.parent_menu_id p3parent_menu_id,p3.level p3level
+            from
+                menu p3
+            inner join
+                (
+                select id, name, link_url, path, icon, description, parent_menu_id, level
+                from
+                menu
+                where id in
+                <foreach item="id" collection="ids" open="(" separator="," close=")">
+                    #{id}
+                </foreach>
+                and level = 2
+                )p2
+        on p2.id = p3.parent_menu_id
+    </select>
+
+
+    <resultMap id="listMenusL1" type="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+        <id column="p1id" property="id"></id>
+        <result column="p1name" property="name"></result>
+        <result column="p1icon" property="icon"></result>
+        <result column="p1link_url" property="linkUrl"></result>
+        <result column="p1path" property="path"></result>
+        <result column="p1icon" property="icon"></result>
+        <result column="p1description" property="description"></result>
+        <result column="p1parent_menu_id" property="pid"></result>
+        <result column="p1level" property="level"></result>
+    </resultMap>
+    <select id="getAllByIdListL1" resultType="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+        select p1.id  p1id, p1.name  p1name, p1.link_url  p1linkUrl, p1.path  p1path, p1.icon  p1icon, p1.description  p1description, p1.parent_menu_id  p1pid, p1.level  p1level
+        from
+            menu p1
+        where id in
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+        and level = 1
+    </select>
+
+
+    <resultMap id="listMenus_" type="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+        <id column="p1id" property="id"></id>
+        <result column="p1name" property="name"></result>
+        <result column="p1icon" property="icon"></result>
+        <result column="p1link_url" property="linkUrl"></result>
+        <result column="p1path" property="path"></result>
+        <result column="p1icon" property="icon"></result>
+        <result column="p1description" property="description"></result>
+        <result column="p1parent_menu_id" property="pid"></result>
+        <result column="p1level" property="level"></result>
+    </resultMap>
+    <select id="getAllByIdListNoLevel" resultType="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+        select id, name, link_url, path, icon, description, parent_menu_id, level
+        from
+            menu
+        where id in
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <resultMap id="listMenu3" type="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+        <id column="p1id" property="id"></id>
+        <result column="p1name" property="name"></result>
+        <result column="p1icon" property="icon"></result>
+        <result column="p1link_url" property="linkUrl"></result>
+        <result column="p1path" property="path"></result>
+        <result column="p1icon" property="icon"></result>
+        <result column="p1description" property="description"></result>
+        <result column="p1parent_menu_id" property="pid"></result>
+        <result column="p1level" property="level"></result>
+        <collection property="children" ofType="com.zeroone.star.project.vo.commonMenu.TreeMenuVO">
+            <id column="p2id" property="id"></id>
+            <result column="p2name" property="name"></result>
+            <result column="p2icon" property="icon"></result>
+            <result column="p2link_url" property="linkUrl"></result>
+            <result column="p2path" property="path"></result>
+            <result column="p2icon" property="icon"></result>
+            <result column="p2description" property="description"></result>
+            <result column="p2parent_menu_id" property="pid"></result>
+            <result column="p2level" property="level"></result>
+        </collection>
+    </resultMap>
+    <select id="getAllByIdList" resultMap="listMenusL3">
+        select p1.id   p1id, p1.name   p1name, p1.link_url   p1linkUrl, p1.path   p1path, p1.icon   p1icon, p1.description   p1description, p1.parent_menu_id   p1pid, p1.level   p1level,
+               p2.p2id p2id, p2.p2name p2name, p2.p2link_url p2linkUrl, p2.p2path p2path, p2.p2icon p2icon, p2.p2description p2description, p2.p2parent_menu_id p2pid, p2.p2level p2level
+        from
+            menu p1
+        inner join
+        (
+            select id p2id, name p2name, link_url p2link_url, path p2path, icon p2icon, description p2description, parent_menu_id p2parent_menu_id, level p2level
+            from
+                menu
+            where id in
+                <foreach item="id" collection="ids" open="(" separator="," close=")">
+                    #{id}
+                </foreach>
+            and level = 2
+        ) p2
+        on p1.id = p2.p2parent_menu_id
+    </select>
+
+</mapper>

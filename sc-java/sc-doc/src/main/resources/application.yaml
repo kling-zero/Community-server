@@ -1,0 +1,16 @@
+server:
+  port: ${sp.doc}
+spring:
+  application:
+    name: ${sn.doc}
+knife4j:
+  enableAggregation: true
+  nacos:
+    enable: true
+    serviceUrl: http://${nacos.addr}/${nacos.contextPath}/
+    # 新增配置均通过system.yaml配置
+#    routes:
+#      - name: 示例服务
+#        serviceName: ${sn.sample}
+#        namespaceId: ${nacos.namespace}
+#        location: /v2/api-docs?group=sample

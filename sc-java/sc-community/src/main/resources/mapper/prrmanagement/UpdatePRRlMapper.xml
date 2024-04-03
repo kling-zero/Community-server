@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.zeroone.star.sccommunity.mapper.prrmanagement.UpdatePRRlMapper">
+
+    <update id="updatePRRlMapper" parameterType="com.zeroone.star.sccommunity.entity.prrmanagement.UpdatePPRl">
+        UPDATE
+            property_right_registration as p
+        SET
+            p.room_id=#{roomId}
+            p.`name`=#{name}
+            p.link=#{link}
+            p.address=#{address}
+            p.id_card=#{idCard}
+        WHERE p.prr_id=#{prrId}
+    </update>
+</mapper>

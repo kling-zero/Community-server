@@ -1,0 +1,13 @@
+server:
+  port: ${sp.community}
+spring:
+  application:
+    name: ${sn.community}
+  cloud:
+    nacos:
+      discovery:
+#        ip: 192.168.146.128
+        ip: 43.153.170.95
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -1,0 +1,19 @@
+server:
+  port: ${sp.commonmenu}
+spring:
+  application:
+    name: ${sn.commonmenu}
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+redis:
+  timeout: 5000ms
+  jedis:
+    pool:
+      max-active: 8
+      max-wait: -1ms
+      max-idle: 8
+      min-idle: 0
+
+loginPort: ${sp.gateway}
