@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.scsetting.mapper.UserPrivilegeMapper">
+
+    <insert id="addRole" parameterType="com.zeroone.star.project.dto.rolePrivilege.RoleDTO">
+        INSERT INTO `zosc_tt`.`role`
+        SET name = #{name},
+            keyword = #{keyword},
+            description = #{description}
+    </insert>
+    <insert id="insertMenu" parameterType="com.zeroone.star.project.dto.setting.MenuRoleDTO">
+        INSERT INTO `zosc_tt`.`role_menu` (`role_id`, `menu_id`) VALUES (#{roleID}, #{menuID})
+    </insert>
+    <update id="updateRole" parameterType="com.zeroone.star.project.dto.rolePrivilege.RoleDTO">
+        UPDATE `zosc_tt`.`role`
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+        </set>
+        WHERE
+            `id` = #{roleId};
+    </update>
+
+    <delete id="deleteRole" parameterType="com.zeroone.star.project.dto.rolePrivilege.RoleDTO">
+        DELETE
+        FROM
+            `zosc_tt`.`role`
+        WHERE
+            id = #{roleId};
+    </delete>
+    <delete id="deleteMenu" parameterType="com.zeroone.star.project.dto.setting.MenuRoleDTO">
+        DELETE
+        FROM
+            `zosc_tt`.`role_menu`
+        WHERE
+            role_id = #{roleId} and menu_id = #{menuID};
+    </delete>
+
+    <select id="listAll" resultType="com.zeroone.star.scsetting.entity.Role">
+        SELECT
+            *
+        FROM
+            role
+        WHERE
+            store_type_id = ( SELECT store_type_id FROM u_user WHERE id = #{userId} );
+    </select>
+
+</mapper>

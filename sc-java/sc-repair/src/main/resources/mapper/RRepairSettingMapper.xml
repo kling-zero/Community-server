@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.repair.mapper.RRepairSettingMapper">
+
+    <resultMap id="BaseResultMap" type="com.zeroone.star.repair.entity.RRepairSetting">
+            <result property="settingId" column="setting_id" jdbcType="VARCHAR"/>
+            <result property="bId" column="b_id" jdbcType="VARCHAR"/>
+            <result property="repairType" column="repair_type" jdbcType="VARCHAR"/>
+            <result property="repairTypeName" column="repair_type_name" jdbcType="VARCHAR"/>
+            <result property="repairWay" column="repair_way" jdbcType="VARCHAR"/>
+            <result property="communityId" column="community_id" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="statusCd" column="status_cd" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="publicArea" column="public_area" jdbcType="VARCHAR"/>
+            <result property="payFeeFlag" column="pay_fee_flag" jdbcType="VARCHAR"/>
+            <result property="priceScope" column="price_scope" jdbcType="VARCHAR"/>
+            <result property="returnVisitFlag" column="return_visit_flag" jdbcType="VARCHAR"/>
+            <result property="repairSettingType" column="repair_setting_type" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        setting_id,b_id,repair_type,
+        repair_type_name,repair_way,community_id,
+        remark,status_cd,create_time,
+        public_area,pay_fee_flag,price_scope,
+        return_visit_flag,repair_setting_type
+    </sql>
+</mapper>

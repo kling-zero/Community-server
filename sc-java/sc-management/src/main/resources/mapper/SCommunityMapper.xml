@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.management.mapper.SCommunityMapper">
+
+    <select id="selectNoEnterCommunity" resultType="com.zeroone.star.project.vo.management.SCommunityVO">
+        select * from s_community where community_id not in
+        (
+            SELECT community_id from s_community_member c inner join community_member_type t on c.member_type_cd=t.member_type_cd
+            where status_cd=0 AND (audit_status_cd in (1000,1100)) AND `name` like '物业关系'
+        );
+    </select>
+
+
+    <select id="listByCondition" resultType="com.zeroone.star.project.vo.management.SCommunityVO">
+
+    </select>
+</mapper>

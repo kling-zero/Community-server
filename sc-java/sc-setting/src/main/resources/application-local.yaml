@@ -1,0 +1,36 @@
+server:
+  #  port: ${sp.setting.port}
+  port:
+    8095
+  tomcat:
+    uri-encoding: UTF-8
+#spring:
+#  application:
+#    name: ${sn.setting.name}
+spring:
+  profiles:
+    active: share
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  application:
+    name: setting-service
+  redis:
+    database: 0
+    host: localhost
+    port: 6579
+    password: abc123
+    pool:
+      max-active: 300
+      max-wait: 10000
+      max-idle: 100
+      min-idle: 0
+      timeout: 0
+  mysql:
+    database:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://lcoalhost:3306/tt?useSSL=false&serverTimezone=GMT%2B8&CharsetEncoding=UTF-8
+      username: root
+      password: 123456

@@ -1,0 +1,12 @@
+server:
+  port: ${sp.hp}
+spring:
+  application:
+    name: ${sn.hp}
+  cloud:
+    nacos:
+      discovery:
+        ip: 43.153.170.95
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -1,0 +1,26 @@
+server:
+  port: ${sp.store}
+spring:
+  application:
+    name: ${sn.store}
+  cloud:
+    nacos:
+      discovery:
+        ip: 43.153.170.95
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#seata:
+#  tx-service-group: tx-business
+#  enabled: true
+#  service:
+#    #seata????
+#    grouplist:
+#      default: ${seata.default}
+#    #?????????key????tx-service-group??
+#    vgroup-mapping:
+#      tx-business: default
+#    #??????
+#    disable-global-transaction: false

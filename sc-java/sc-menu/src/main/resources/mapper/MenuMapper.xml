@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.scmenu.mapper.MenuMapper">
+    <resultMap id="BaseResultMap" type="com.zeroone.star.project.dto.menu.ThirdMenuDTO">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="link_url" jdbcType="VARCHAR" property="linkUrl" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+    </resultMap>
+    <resultMap id="ThirdMenuDTOResultMap" type="com.zeroone.star.project.dto.menu.ThirdMenuDTO">
+<!--        <id column="m1.id" jdbcType="INTEGER" property="id" />-->
+<!--        <result column="m1.name" jdbcType="VARCHAR" property="name" />-->
+<!--        <result column="m1.link_url" jdbcType="VARCHAR" property="linkUrl" />-->
+<!--        <result column="m1.description" jdbcType="VARCHAR" property="description" />-->
+<!--        <result column="m2.name" jdbcType="VARCHAR" property="parentMenuName" />-->
+<!--        <result column="r.name" jdbcType="VARCHAR" property="roleName" />-->
+    </resultMap>
+
+    <resultMap id="FirstMenuDTOResultMap" type="com.zeroone.star.project.dto.menu.FirstMenuDTO">
+
+    </resultMap>
+
+
+    <select id="selectThirdMenuByParentId" resultMap="BaseResultMap">
+        SELECT id,`name`,link_url,description
+        FROM menu
+        WHERE (path IS NULL OR path = '')
+          AND level = 3
+          AND parent_menu_id = ${parentId}
+        ORDER BY priority
+    </select>
+    <select id="selectThirdMenu" resultType="com.zeroone.star.project.vo.menu.ThirdMenuVO" parameterType="com.zeroone.star.project.query.menu.ThirdMenuPageQuery">
+        SELECT
+            m3.id AS id,
+            m3.name AS NAME,
+            m3.link_url AS linkUrl,
+            r.id AS roleId,
+            r.name AS roleName,
+            m3.create_time AS createTime
+        FROM
+            role r
+                JOIN role_menu rm ON r.id=rm.role_id
+                JOIN menu m3 ON rm.menu_id = m3.id
+                JOIN menu m2 ON m3.parent_menu_id = m2.id
+        WHERE
+            m3.level = 3
+        <if test="thirdMenuPageQuery.parentMenuId != null">
+            AND m3.parent_menu_id = #{thirdMenuPageQuery.parentMenuId}
+        </if>
+        <if test="thirdMenuPageQuery.name != null and thirdMenuPageQuery.name != ''">
+            AND m3.name LIKE "%"#{thirdMenuPageQuery.name}"%"
+        </if>
+        <if test="thirdMenuPageQuery.id != null">
+            AND m3.id = #{thirdMenuPageQuery.id}
+        </if>
+        ORDER BY m3.create_time DESC
+    </select>
+
+    <select id="selectAThirdMenu" resultType="com.zeroone.star.project.dto.menu.ThirdMenuDTO" parameterType="Integer">
+        SELECT
+            m3.name AS name,
+            m3.link_url AS linkUrl,
+            r.name AS roleName,
+            m3.description AS description
+        FROM
+            role r
+                JOIN role_menu rm ON r.id=rm.role_id
+                JOIN menu m3 ON rm.menu_id=m3.id
+                JOIN menu m2 ON m3.parent_menu_id=m2.id
+        WHERE
+            m3.level=3
+            AND m3.id = #{id}
+            AND m3.parent_menu_id = #{parentMenuId}
+    </select>
+
+    <select id="getThirdMenu" resultType="com.zeroone.star.project.dto.menu.ThirdMenuDTO">
+        SELECT
+            m1.id AS id,
+            m1.`name` AS name,
+            m1.link_url AS linkUrl,
+            m1.description AS description,
+            m2.`name` AS parentMenuName,
+            r.`name` AS roleName
+        FROM
+            role r
+                JOIN role_menu rm ON r.id = rm.role_id
+                JOIN menu m1 ON rm.menu_id = m1.id
+                JOIN menu m2 ON m1.parent_menu_id = m2.id
+        WHERE
+        m1.`level` = 3 AND m1.id = #{id} AND r1.id = #{roleId}
+    </select>
+
+    <select id="selectFirstMenu" resultType="com.zeroone.star.project.dto.menu.FirstMenuDTO" parameterType="com.zeroone.star.project.query.menu.FirstMenuPageQuery">
+        SELECT * FROM first_menu
+    </select>
+
+    <select id="getFirstMenu" resultType="com.zeroone.star.project.dto.menu.FirstMenuDTO">
+        SELECT
+            m1.id AS id,
+            m1.`name` AS name,
+            m1.link_url AS linkUrl,
+            m1.description AS description,
+            m2.`name` AS parentMenuName,
+            r.`name` AS roleName
+        FROM
+            role r
+                JOIN role_menu rm ON r.id = rm.role_id
+                JOIN menu m1 ON rm.menu_id = m1.id
+                JOIN menu m2 ON m1.parent_menu_id = m2.id
+        WHERE
+            m1.`level` = 1 AND m1.id = #{id} AND r1.id = #{roleId}
+    </select>
+
+    <!--Integer selectExistMenuByParentId(@Param("parentMenuId") Integer parentMenuId);-->
+    <select id="selectExistMenuByParentId" resultType="Integer" parameterType="Integer">
+        SELECT
+            COUNT(m3.id)
+        FROM
+            menu m3
+                INNER JOIN menu m2 ON m3.parent_menu_id=m2.id
+        WHERE
+            m3.parent_menu_id=#{parentMenuId}
+    </select>
+
+    <!--Integer selectRoleIdByRoleName(@Param("roleName") String roleName);-->
+    <select id="selectRoleIdByRoleName" resultType="Integer" parameterType="String">
+        SELECT role.id FROM role WHERE role.name=#{roleName}
+    </select>
+
+    <!--Integer selectExistMenuById(@Param("id") Integer id);-->
+    <select id="selectExistMenuById" resultType="Integer" parameterType="Integer">
+        SELECT COUNT(menu.id) FROM menu WHERE id=#{id}
+    </select>
+    <select id="selectSubmenu" resultType="com.zeroone.star.project.vo.menu.SecondaryMenuVO">
+        select menu_id Id ,name , link_url linkUrl, is_enable isEnable, priority, parent_menu_id parentMenuId, parent_menu_name parentMenuName, role_name roleName
+        from second_menu where is_enable = 1
+    </select>
+
+    <!--int updateThirdMenu(@Param("thirdMenuDTO") ThirdMenuDTO thirdMenuDTO);-->
+    <update id="updateThirdMenu" parameterType="com.zeroone.star.project.dto.menu.ThirdMenuDTO">
+        UPDATE menu
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="thirdMenuDTO.name != null || thirdMenuDTO.name != ''">
+                menu.name=#{thirdMenuDTO.name},
+            </if>
+            <if test="thirdMenuDTO.linkUrl != null || thirdMenuDTO.linkUrl != ''">
+                menu.link_url=#{thirdMenuDTO.linkUrl},
+            </if>
+            <if test="thirdMenuDTO.description != null || thirdMenuDTO.description != ''">
+                menu.description=#{thirdMenuDTO.description}
+            </if>
+            WHERE menu.id=#{thirdMenuDTO.id}
+        </trim>
+    </update>
+    <update id="updateIsEnable">
+        update menu set is_enable = 0 where id = #{id}
+    </update>
+
+    <!--int deleteThirdMenuById(@Param("menuId") Integer menuId);-->
+    <delete id="deleteThirdMenuById" parameterType="Integer">
+        DELETE FROM menu WHERE id=#{menuId}
+    </delete>
+</mapper>

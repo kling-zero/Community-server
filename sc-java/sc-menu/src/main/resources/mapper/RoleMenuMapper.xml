@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.scmenu.mapper.RoleMenuMapper">
+
+    <!--Integer selectRoleIdByRoleName(@Param("roleName") String roleName);-->
+    <select id="selectRoleIdByRoleName" resultType="Integer" parameterType="String">
+        SELECT r.id  FROM role r WHERE r.name=#{roleName}
+    </select>
+    <select id="getOneByMenuGroupId" resultType="com.zeroone.star.scmenu.entity.RoleMenu">
+        select role_id, menu_id
+        from role_menu
+        where menu_id = #{menuGroupId}
+    </select>
+
+    <!--int updateRoleIdByMenuId(@Param("thirdMenuDTO") ThirdMenuDTO thirdMenuDTO);-->
+    <update id="updateRoleIdByMenuId" parameterType="com.zeroone.star.project.dto.menu.ThirdMenuDTO">
+        UPDATE role_menu SET role_id=#{roleId} WHERE menu_id=#{thirdMenuDTO.id}
+    </update>
+    <update id="updateStatus">
+        update role_menu set status = 0 where role_id = #{role_id} and menu_id = #{menu_id}
+    </update>
+
+    <!--int deleteRoleAndMenu(@Param("roleId") Integer roleId, @Param("menuId") Integer menuId);-->
+    <delete id="deleteRoleAndMenu" parameterType="Integer">
+        DELETE FROM role_menu WHERE role_id=#{roleId} AND menu_id=#{menuId};
+    </delete>
+
+    <delete id="deleteRoleMenu" parameterType="com.zeroone.star.scmenu.entity.RoleMenu">
+        DELETE
+        FROM role_menu
+        WHERE
+            role_id = #{roleMenu.roleId}
+            AND
+            menu_id = #{roleMenu.menuId}
+    </delete>
+</mapper>

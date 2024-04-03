@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.management.mapper.SStoreMapper">
+
+<!--    查询物业相关信息-->
+    <select id="listPropertyByCondition" resultType="com.zeroone.star.management.entity.SStore">
+        SELECT ss.store_id, ss.name, ss.address, ss.tel, ss.store_type_cd storeTypeCd, ss.create_time, ss.user_id,
+        ss.map_x, ss.map_y, ss.status_cd, ss.state,sa.value corporation, sa1.value foundingTime
+        FROM s_store ss
+        left join s_store_attr sa on ss.store_id = sa.store_id and sa.spec_cd = '100201903001' and sa.status_cd='0'
+        left join s_store_attr sa1 on ss.store_id = sa1.store_id and sa1.spec_cd = '100201903003' and sa1.status_cd='0'
+        <where>
+            <if test="condition.storeId != null">ss.store_id=#{condition.storeId}</if>
+            <if test="condition.storeId != null and(condition.name != null or condition.tel != null)">AND</if>
+            <if test="condition.name != null">ss.name=#{condition.name}</if>
+            <if test="condition.name != null and condition.tel != null">AND</if>
+            <if test="condition.tel != null">ss.tel=#{condition.tel}</if>
+        </where>
+        order by ss.create_time desc
+    </select>
+
+    <select id="queryBelongingCommunities" resultType="com.zeroone.star.management.entity.SCommunity">
+        SELECT c.* from s_community_member m
+        left join s_community c on m.community_id=c.community_id
+        where m.member_id = #{condition.storeId} and m.member_type_cd = "390001200002" and m.status_cd = "0"
+    </select>
+</mapper>
