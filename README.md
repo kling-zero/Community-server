@@ -1,10 +1,6 @@
-# `zero-one-smart-community`
+# `御堤湾-智慧社区`
 
-物业管理相关概念参考：
 
-- https://zh.wikipedia.org/zh-my/%E7%89%A9%E6%A5%AD%E7%AE%A1%E7%90%86
-- https://baike.baidu.com/item/%E7%89%A9%E4%B8%9A%E7%AE%A1%E7%90%86/450
-- http://www.gov.cn/gongbao/content/2016/content_5139402.htm
 
 ## 项目简介
 
